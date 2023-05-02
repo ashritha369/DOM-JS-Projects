@@ -1,0 +1,54 @@
+.card {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  margin: auto;
+}
+.players {
+  display: flex;
+  flex-direction: row;
+}
+.player-1,
+.player-2 {
+  margin: 10px;
+  background-color: blueviolet;
+  height: 40px;
+  width: 200px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 22px;
+}
+
+button {
+  height: 30px;
+  width: 80px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: black;
+}
+button:active {
+  background-color: black;
+}
+
+.button-div-for-r-c-p,
+.display-winner {
+  margin: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.score {
+  background-color: white !important;
+  color: black;
+}
