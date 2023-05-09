@@ -10,6 +10,8 @@ const buttonRock = document.getElementById("rock");
 const buttonPaper = document.getElementById("paper");
 const buttonScissor = document.getElementById("scissor");
 
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
 const randomArray = ["ROCK", "PAPER", "SCISSOR"];
 let playerCount1 = 0;
 let playerCount2 = 0;
@@ -27,14 +29,28 @@ function handlePlayer2RandomValues() {
   player2.innerHTML = randomOption;
   randomValue = randomOption;
 }
-// --------------------------------------------
-buttonRock.addEventListener("click", handleRockButton);
 
-function handleRockButton() {
-  clickedButtonValue = "ROCK";
+buttonRock.addEventListener("click", function () {
+  handleButton("ROCK");
+});
+buttonScissor.addEventListener("click", function () {
+  handleButton("SCISSOR");
+});
+buttonPaper.addEventListener("click", function () {
+  handleButton("PAPER");
+});
+
+function handleButton(clickedButton) {
+  clickedButtonValue = clickedButton;
+  console.log("clickedButton", clickedButton);
+  console.log("clickedButtonValue", clickedButtonValue);
   player1.innerHTML = clickedButtonValue;
-
-  if (clickedButtonValue === "ROCK" && randomValue === "ROCK") {
+  //NO PLAYER WON
+  if (
+    (clickedButtonValue === "ROCK" && randomValue === "ROCK") ||
+    (clickedButtonValue === "SCISSOR" && randomValue === "SCISSOR") ||
+    (clickedButtonValue === "PAPER" && randomValue === "PAPER")
+  ) {
     displayWinner.innerHTML = "NO PLAYER WON";
     playerCount1 = playerCount1;
     playerCount2 = playerCount2;
@@ -42,7 +58,10 @@ function handleRockButton() {
     player2Score.innerHTML = playerCount2;
   }
 
-  if (clickedButtonValue === "ROCK" && randomValue === "PAPER") {
+  if (
+    (clickedButtonValue === "ROCK" || clickedButtonValue === "SCISSOR") &&
+    randomValue === "PAPER"
+  ) {
     playerCount1 = playerCount1 + 1;
     playerCount2 = playerCount2;
     player1Score.innerHTML = playerCount1;
@@ -50,11 +69,14 @@ function handleRockButton() {
     displayWinner.innerHTML = "PLAYER 1 WON";
   }
 
-  if (clickedButtonValue === "ROCK" && randomValue === "SCISSOR") {
-    playerCount1 = playerCount1 + 1;
-    playerCount2 = playerCount2;
+  if (
+    (clickedButtonValue === "PAPER" || clickedButtonValue === "SCISSOR") &&
+    randomValue === "SCISSOR"
+  ) {
+    playerCount1 = playerCount1;
+    playerCount2 = playerCount2 + 1;
     player1Score.innerHTML = playerCount1;
     player2Score.innerHTML = playerCount2;
-    displayWinner.innerHTML = "PLAYER 1 WON";
+    displayWinner.innerHTML = "PLAYER 2 WON";
   }
 }
