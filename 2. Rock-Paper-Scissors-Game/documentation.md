@@ -21,3 +21,5 @@ SCISSOR-PAPER --> Player-1 : 1, Player-2 : 0
 SCISSOR-SCISSOR--> Player-1 : 0, Player-2 : 0
 
 ---
+
+- The code written in `script.js` is working
