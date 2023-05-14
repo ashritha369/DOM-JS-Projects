@@ -1,3 +1,5 @@
+# Logic
+
 ROCK-ROCK --> Player-1 : 0, Player-2 : 0
 
 ROCK-PAPER --> Player-1 : 1, Player-2 : 0
@@ -62,6 +64,57 @@ SCISSOR-SCISSOR--> Player-1 : 0, Player-2 : 0
 - Similarly, if you have a complicated layout with lots of elements, the browser might only calculate the styles and positions of the elements that are visible on the screen right now, and wait to calculate the others until you interact with the page.
 
 - By using lazy evaluation, the browser can make the initial page load faster and improve the performance of the page overall.
+
+# Code Logic
+
+```
+const gameRules = {
+  ROCK: { beats: ["SCISSOR", "PAPER"], message: " A PLAYER 1 WON" },
+  PAPER: { beats: ["ROCK", "SCISSOR"], message: " B PLAYER 2 WON" },
+      SCISSOR: { beats: ["PAPER"], message: "C PLAYER 1 WON " },
+  SCISSOR: { beats: ["ROCK"], message: "D PLAYER 2 WON" },
+};
+function getResult(option1, option2) {
+  if (option1 === option2) {
+    return "DRAW";
+  } else if (
+    gameRules[option1].beats[0] === option2 ||
+    gameRules[option1].beats[1] === option2
+  ) {
+    console.log(`first statement`,gameRules[option1].message)
+    return gameRules[option1].message;
+  } else if (gameRules[option1].beats[0] === option2) {
+      console.log(`second statement`,gameRules[option1].message)
+    return gameRules[option1].message;
+  } else {
+      console.log(`third statement`,gameRules[option2].message)
+    return gameRules[option2].message;
+  }
+}
+getResult("ROCK","PAPER")
+getResult("ROCK","SCISSOR")
+getResult("PAPER","ROCK")
+getResult("PAPER","SCISSOR")
+getResult("SCISSOR","PAPER")
+getResult("SCISSOR","ROCK")
+
+```
+
+## helper code
+
+```
+const gameRules = {
+    ROCK: { beats: ["SCISSOR", "PAPER"]},
+    PAPER: { beats: ["ROCK", "SCISSOR"]},
+    SCISSOR: { beats: ["PAPER"]},
+    SCISSOR: { beats: ["ROCK"]}
+    MESSAGE1:"PLAYER 1 WON",
+    MESSAGE2:"PLAYER 2 WON",
+
+};
+
+
+```
 
 # Why below code ?
 

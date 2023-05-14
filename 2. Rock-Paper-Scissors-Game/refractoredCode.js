@@ -56,7 +56,12 @@ function getRandomOption() {
 function getResult(option1, option2) {
   if (option1 === option2) {
     return "DRAW";
-  } else if (gameRules[option1].beats === option2) {
+  } else if (
+    gameRules[option1].beats[0] === option2 ||
+    gameRules[option1].beats[1] === option2
+  ) {
+    return gameRules[option1].message;
+  } else if (gameRules[option1].beats[0] === option2) {
     return gameRules[option1].message;
   } else {
     return gameRules[option2].message;
