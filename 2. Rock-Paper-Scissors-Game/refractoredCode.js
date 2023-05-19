@@ -10,15 +10,15 @@ const buttonScissor = document.getElementById("scissor");
 
 // Initialize game state
 let playerCount1 = 0;
-let playerCount2;
+let playerCount2 = 0;
 
 // Add event listeners
 const randomArray = ["ROCK", "PAPER", "SCISSOR"];
 let player1Value = "";
 let computerValue = "";
 
-function checkWinner(player1value, computerValue) {
-  if (player1value === computerValue) {
+function checkWinner(player1Value, computerValue) {
+  if (player1Value === computerValue) {
     return "DRAW";
   }
 
@@ -46,22 +46,23 @@ function checkWinner(player1value, computerValue) {
     }
   }
 }
+// Handle player 2's - Computer  random values
+function handlePlayer2ComputercomputerValues() {
+  const randomOption = getRandomOption();
+  // Helper functions
+  function getRandomOption() {
+    const randomIndex = Math.floor(Math.random() * randomArray.length);
+    return randomArray[randomIndex];
+  }
+  player2.textContent = randomOption;
+  computerValue = randomOption;
+  return computerValue;
+}
 // Handle player 1's button clicks
 function playGame(player1Value) {
   player1.textContent = player1Value;
 
   handlePlayer2ComputercomputerValues();
-  // Handle player 2's - Computer  random values
-  function handlePlayer2ComputercomputerValues() {
-    const randomOption = getRandomOption();
-    // Helper functions
-    function getRandomOption() {
-      const randomIndex = Math.floor(Math.random() * randomArray.length);
-      return randomArray[randomIndex];
-    }
-    player2.textContent = randomOption;
-    computerValue = randomOption;
-  }
 
   const result = checkWinner(player1Value, computerValue);
 
