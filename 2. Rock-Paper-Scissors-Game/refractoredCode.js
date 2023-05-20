@@ -23,7 +23,7 @@ function checkWinner(player1Value, computerValue) {
   }
 
   if (player1Value === "ROCK") {
-    if (computerValue === "PAPER") {
+    if (computerValue === "PAPER" || computerValue === "SCISSOR") {
       return "PLAYER 1 WINS!";
     } else {
       return "COMPUTER(PLAYER 2) WINS!";
@@ -31,7 +31,7 @@ function checkWinner(player1Value, computerValue) {
   }
 
   if (player1Value === "PAPER") {
-    if (computerValue === "SCISSOR") {
+    if (computerValue === "SCISSOR" || computerValue === "ROCK") {
       return "COMPUTER(PLAYER 2) WINS!";
     } else {
       return "PLAYER 1 WINS!";
@@ -41,8 +41,10 @@ function checkWinner(player1Value, computerValue) {
   if (player1Value === "SCISSOR") {
     if (computerValue === "PAPER") {
       return "PLAYER 1 WINS!";
+    } else if (computerValue === "ROCK") {
+      return "COMPUTER (PLAYER 2) WINS!";
     } else {
-      return "COMPUTER(PLAYER 2) WINS!";
+      return "DRAW";
     }
   }
 }
