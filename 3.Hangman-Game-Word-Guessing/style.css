@@ -6,8 +6,7 @@
   margin-left: 10px;
   cursor: pointer;
   font-size: 2em;
-  background-color: black;
-  color: white;
+  color: black;
 }
 .letter-in-26 {
   display: inline-block;
@@ -17,4 +16,11 @@
   font-size: 2em;
   background-color: rgb(245, 252, 55);
   color: black;
+}
+
+.done {
+  cursor: default;
+  color: #b5afaf;
+  border: 1px solid rgb(21, 2, 2);
+  background-color: white;
 }

@@ -10,12 +10,7 @@ btn.addEventListener("click", function () {
     return 0.5 - Math.random();
   });
   let theWord = myWords.shift();
-  console.log(theWord);
-
   player.solution = theWord.split("");
-  console.log(player.solution);
-  console.log(player);
-
   buildBoard();
 });
 
@@ -36,6 +31,9 @@ function buildBoard() {
     output2.appendChild(div_for_each_underscore);
   });
 
+  //SOLUTION LETTERS
+  let solutionLetter = document.querySelectorAll(".solution-letter");
+  console.log(`solutionLetter is ${solutionLetter}`);
   //Alphabets 26 letters
   for (let x = 0; x < 26; x++) {
     let temp = String.fromCharCode(65 + x);
@@ -47,5 +45,24 @@ function buildBoard() {
     div_for_each_letter_in_26.innerHTML = temp;
 
     output1.appendChild(div_for_each_letter_in_26);
+    //ADDING HANDLER
+    let handler = function (e) {
+      div_for_each_letter_in_26.removeEventListener("click", handler);
+      div_for_each_letter_in_26.classList.add("done");
+
+      //GAME LOGIC HERE:
+
+      let counter = 0;
+      solutionLetter.forEach(function (letter) {
+        if (letter.innerHTML != "_") {
+          counter++;
+        }
+        if (letter.myLetter.toUpperCase() === temp) {
+          letter.innerHTML = temp;
+        }
+      });
+    };
+
+    div_for_each_letter_in_26.addEventListener("click", handler);
   }
 }

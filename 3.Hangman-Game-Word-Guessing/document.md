@@ -163,4 +163,32 @@ for (let x = 0; x < 26; x++) {
 
 ## Hide the button for now;
 
-# Add Event Handler
+# Add Event Handler inside for loop
+
+```
+  //ADDING HANDLER
+    let handler = function (e) {
+      console.log(temp);
+      div_for_each_letter_in_26.removeEventListener("click", handler);
+      div_for_each_letter_in_26.classList.add("done");
+    };
+
+    div_for_each_letter_in_26.addEventListener("click", handler);
+
+```
+
+```
+.done {
+  cursor: default;
+  color: #b5afaf;
+  border: 1px solid rgb(21, 2, 2);
+  background-color: white;
+}
+
+```
+
+# Game Logic
+
+- create a variable for `solution-letter`;
+- go inside the for loop and write the logic inside the `handler` function
+-
